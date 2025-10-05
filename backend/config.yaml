@@ -1,0 +1,6 @@
+LongMethod: true
+GodClass: true
+DuplicatedCode: true
+LargeParameterList: true
+MagicNumbers: true
+FeatureEnvy: true
