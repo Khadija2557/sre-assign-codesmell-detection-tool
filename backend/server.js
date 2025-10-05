@@ -32,7 +32,6 @@ app.post('/api/analyze', (req, res) => {
     return res.status(400).json({ error: 'No code provided' });
   }
 
-  // FIXED: Proper configuration logic with correct priority
   let enabledSmells = { ...configSmells };
 
   // Step 1: Apply individual toggle switches from frontend
@@ -116,8 +115,8 @@ app.post('/api/analyze', (req, res) => {
       try {
         const allFindings = JSON.parse(output);
         console.log('Raw findings from Python:', allFindings);
-        
-        // FIXED: Filter findings to only include active smells
+
+        // Filter findings to only include active smells
         const filteredFindings = {};
         activeSmells.forEach(smell => {
           filteredFindings[smell] = allFindings[smell] || { count: 0, items: [] };
